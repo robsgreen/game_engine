@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      py:strip="True">
+  <xi:include href="base.html" />
+  <head>
+    <title>Welcome to the Game Engine server!</title>
+  </head>
+
+  <body>
+    <h1>
+      The match!
+    </h1>
+    Score:<br />
+    X: ${match.x_player_score}<br />
+    Y: ${match.y_player_score}
+
+  
+    <table style="border: 1px solid;">
+      <tr py:for="row in range(0, match.game_board.board_size[1])">
+        <td py:for="col in range(0, match.game_board.board_size[0])" style="border: 1px solid;">
+          <div style="width:25px; height:25px;">
+            <py:choose test="1">
+              <py:when test="any(star.x == col and star.y == row for star in match.game_board.stars)">*</py:when>
+              <py:when test="match.game_board.x_position[0] == col and match.game_board.x_position[1] == row">X</py:when>
+              <py:when test="match.game_board.y_position[0] == col and match.game_board.y_position[1] == row">Y</py:when>
+            </py:choose>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>

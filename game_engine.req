@@ -1,0 +1,7 @@
+pyramid==1.4.5
+sqlalchemy==0.9.3
+alembic==0.6.3
+zope.sqlalchemy==0.7.4
+genshi==0.7
+pyramid_genshi==0.1.3
+requests==2.2.1

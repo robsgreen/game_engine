@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      py:strip="True">
+  <xi:include href="base.html" />
+  <head>
+    <title>Welcome to the Game Engine server!</title>
+  </head>
+
+  <body>
+    <h1>
+      Welcome to the Game Engine server!
+    </h1>
+
+    <div class="row">
+      <!-- Leaderboard -->
+      <div class="col-md-4">
+        <h3>Leaderboard</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>          
+              <th>Wins / Losses</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>      
+            <tr py:for="player in players">
+              <td>${player.name} (${player.player_id})</td>          
+              <td>${player.wins} / ${player.losses}</td>
+              <td>${player.rating}</td>
+            </tr>
+          </tbody>
+        </table>
+       
+        <py:if test="not players">
+          No players.  <a href="${request.route_path('new_player')}">Add a new player</a>
+        </py:if>
+        <a href="${request.route_path('new_player')}">Add a new player</a>
+
+      </div>
+      <!-- Matches -->
+      <div class="col-md-4">
+        <h3>Matches</h3>
+        <a href="${request.route_path('new_match')}">New match</a>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>State</th>          
+              <th>Player 1</th>
+              <th>Player 2</th>
+              <th>Winner</th>
+            </tr>
+          </thead>
+          <tbody>      
+            <tr py:for="match in matches" py:if="match.date_created">
+              <td>${match.date_created.strftime('%m/%d/%y %I:%M:%S %p')}</td>              
+              <td>${match.state}</td>
+              <td>${match.x_player.name} (${match.x_player_score})</td>          
+              <td>${match.y_player.name} (${match.y_player_score})</td>
+              <td py:if="match.winner" class="alert alert-success">${match.winner.name} (${match.winner.player_id})</td>
+              <td py:if="not match.winner">Tie</td>
+              <td><a href="${request.route_path('match_view', match_id=match.match_id)}">View Match</a></td>
+              
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+      <div class="col-md-4"></div>
+
+
+
+
+    </div>
+  </body>
+</html>

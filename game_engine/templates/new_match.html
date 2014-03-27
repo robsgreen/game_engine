@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      py:strip="True">
+  <xi:include href="base.html" />
+  <head>
+    <title>New match</title>
+  </head>
+
+  <body>
+    <h1>
+      New Match
+    </h1>
+    <div class="col-md-4">
+      <div class="alert alert-danger" py:if="defined('error')">${error}</div>
+      <form class="form-horizontal" role="form" method="POST" action="${request.current_route_path()}">
+        <div class="form-group">
+          <label for="player_1" class="col-sm-3 control-label">Player 1</label>
+          <div class="col-sm-9">
+            <select class="form-control" id="player_1" name="player_1">
+              <option py:for="player in players" value="${player.player_id}">${player.name}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="player_2" class="col-sm-3 control-label">Player 2</label>
+          <div class="col-sm-9">
+            <select class="form-control" id="player_2" name="player_2">
+              <option py:for="player in players" value="${player.player_id}">${player.name}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">Start Match</button>
+          </div>
+        </div>      
+      </form>
+    </div>
+  </body>
+</html>

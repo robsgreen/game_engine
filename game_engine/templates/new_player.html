@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:i18n="http://genshi.edgewall.org/i18n"
+      py:strip="True">
+  <xi:include href="base.html" />
+  <head>
+    <title>Add a new player</title>
+  </head>
+
+  <body>
+    <h1>
+      Add a new player
+    </h1>
+    <div class="alert alert-danger" py:if="defined('error')">${error}</div>
+    <form role="form" method="POST" action="${request.current_route_path()}">
+      <div class="form-group">
+        <label for="playerName">Name</label>
+        <input type="text" class="form-control" id="playerName" name="playerName" placeholder="Enter player name" />
+      </div>
+      <div class="playerUrl">
+        <label for="playerUrl">URL</label>
+        <input type="text" class="form-control" id="playerUrl" name="playerUrl" placeholder="http://example.com:3000" />
+      </div>
+      <div class="form-group">
+        <label for="avatar">Avatar</label>
+        <input type="file" id="avatar" name="avatar" />
+        <p class="help-block">Upload your avatar.  Optimal size is 100 by 100 pixels.</p>
+      </div>
+
+      <button type="submit" name="submit" class="btn btn-default">Add Player</button>
+    </form>
+
+
+  </body>
+</html>
