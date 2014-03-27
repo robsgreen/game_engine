@@ -3,13 +3,13 @@ game_engine
 Python Pyramid version, based on the original: [Jacobkg/game_engine](https://github.com/Jacobkg/game_engine)
 ###Installation Quickstart
 
-1. Run `setup.py develop` to install requirements and create an egg-link in your site-packages
+  1. Run `setup.py develop` to install requirements and create an egg-link in your site-packages
 
-`python setup.py develop`
+  `python setup.py develop`
 
-2. Initialize the sqlite database:
+  2. Initialize the sqlite database:
 
-`python initializedb.py development.ini`
+  `python initializedb.py development.ini`
 
 ###Run the server
 `python game_engine/wsgiapp.py -c development.ini`
