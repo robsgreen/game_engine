@@ -1,3 +1,8 @@
 .DS_Store
 /game_engine.sqlite
 *.pyc
+Game_Engine.egg-info/PKG-INFO
+Game_Engine.egg-info/SOURCES.txt
+Game_Engine.egg-info/dependency_links.txt
+Game_Engine.egg-info/requires.txt
+Game_Engine.egg-info/top_level.txt
