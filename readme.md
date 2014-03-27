@@ -2,14 +2,14 @@ game_engine
 ===========
 Python Pyramid version, based on the original: [Jacobkg/game_engine](https://github.com/Jacobkg/game_engine)
 ###Installation
-
-1. Install requirements
-
-`pip install -r game_engine.req`
-
-2. Initialize the sqlite database:
-
-`python initializedb.py development.ini`
+  
+  1. Install requirements
+  
+  `pip install -r game_engine.req`
+  
+  2. Initialize the sqlite database:
+  
+  `python initializedb.py development.ini`
 
 ###Run the server
 `python game_engine/wsgiapp.py -c development.ini`
