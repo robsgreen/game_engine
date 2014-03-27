@@ -1,5 +1,6 @@
 game_engine
 ===========
+Python Pyramid version, based on the original: [Jacobkg/game_engine](https://github.com/Jacobkg/game_engine)
 ###Installation
 
 1. Install requirements
